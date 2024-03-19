@@ -38,7 +38,7 @@ export default function Cart() {
             </p>
             <p className="modal-actions">
                 <Button textOnly onClick={handleCloseCart}>Close</Button>
-                <Button onClick={handleCloseCart} >Go to checkout</Button>
+                {cartCtx.meals.length > 0 && <Button onClick={handleCloseCart} >Go to checkout</Button>}
             </p>
         </Modal>
     )
