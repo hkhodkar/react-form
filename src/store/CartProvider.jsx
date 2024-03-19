@@ -41,13 +41,15 @@ export default function CartProvider({ children }) {
     function onRemoveHandler(id) {
         setContextValue(prev => {
             let newMeals = [...prev.meals];
-            const mealIndex = newMeals?.findIndex(item => item.id === meal.id);
+            const mealIndex = newMeals?.findIndex(item => item.id === id);
             if (mealIndex !== -1) {
                 const existingItem = { ...newMeals[mealIndex] };
-                existingItem.amount -= 1;
-                newMeals[mealIndex] = existingItem;
-            } else {
-                newMeals.filter(item => item.id !== id);
+                if (existingItem.amount == 1) {
+                    newMeals = newMeals.filter(item => item.id !== id);
+                } else {
+                    existingItem.amount -= 1;
+                    newMeals[mealIndex] = existingItem;
+                }
             }
 
             return {
