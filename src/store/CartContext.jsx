@@ -3,7 +3,8 @@ import { createContext } from "react";
 const InitialValue = {
     meals: [],
     addItem: () => { },
-    removeItem: () => { }
-}
+    removeItem: () => { },
+    clearCart: () => {},
+};
 
 export const CartContext = createContext(InitialValue)

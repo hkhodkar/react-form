@@ -7,7 +7,8 @@ export default function CartProvider({ children }) {
     const InitialValue = {
         meals: [],
         addItem: onAddHandler,
-        removeItem: onRemoveHandler
+        removeItem: onRemoveHandler,
+        clearCart: onClearCart
     }
 
     const [contextValue, setContextValue] = useState(InitialValue);
@@ -59,8 +60,14 @@ export default function CartProvider({ children }) {
         })
     }
 
-
-
+    function onClearCart() {
+        setContextValue(prev => {
+            return {
+                ...prev,
+                items: []
+            }
+        });
+    }
 
     return (
         <CartContext.Provider value={contextValue} >
