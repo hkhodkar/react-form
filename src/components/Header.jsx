@@ -4,6 +4,7 @@ import Button from '../UI/Button';
 import { CartContext } from '../store/CartContext';
 import UserProgressContext from '../store/UserProgressContext';
 import Cart from './Cart';
+import Checkout from './Checkout';
 
 export default function Header() {
     const cartCtx = useContext(CartContext);
@@ -25,6 +26,7 @@ export default function Header() {
     return (
         <>
             <Cart />
+            <Checkout />
             <header id="main-header">
                 <div id="title">
                     <img src={logoImage} alt="Logo Image" />
